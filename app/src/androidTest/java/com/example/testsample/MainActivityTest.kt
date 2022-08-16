@@ -31,7 +31,7 @@ class MainActivityTest {
     // Check if text in MainActivity is matching as to actual
     @Test
     fun checkTextAsExpected() {
-        onView(withId(R.id.textMain)).check(matches(withText("Hello Developer")))
+        onView(withId(R.id.textMain)).check(matches(withText("Hello User")))
     }
 
     // Button Click Testing

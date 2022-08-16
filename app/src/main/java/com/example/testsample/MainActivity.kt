@@ -16,16 +16,21 @@ class MainActivity : AppCompatActivity() {
         if (launchIntent.action == "com.google.intent.action.TEST_LOOP") {
             val scenario = launchIntent.getIntExtra("scenario", 0)
             // Code to handle your game loop here
-        }
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        // Navigating to the new activity to draft email
-        binding.buttonMain.setOnClickListener {
-            startActivity(Intent(this, SecondActivity::class.java))
+            navigateToNextPage()
+        } else {
+            navigateToNextPage()
         }
 
         MainActivity().finish();
+    }
+
+    private fun navigateToNextPage() {
+        // Navigating to the new activity to draft email
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.buttonMain.setOnClickListener {
+            startActivity(Intent(this, SecondActivity::class.java))
+        }
     }
 }

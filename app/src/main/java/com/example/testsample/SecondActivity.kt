@@ -15,6 +15,20 @@ class SecondActivity : AppCompatActivity() {
     @SuppressLint("QueryPermissionsNeeded")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val launchIntent = intent
+        if (launchIntent.action == "com.google.intent.action.TEST_LOOP") {
+            val scenario = launchIntent.getIntExtra("scenario", 0)
+            // Code to handle your game loop here
+            intentAndBackNavigation()
+        } else {
+            intentAndBackNavigation()
+        }
+
+        SecondActivity().finish()
+    }
+
+    private fun intentAndBackNavigation() {
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
