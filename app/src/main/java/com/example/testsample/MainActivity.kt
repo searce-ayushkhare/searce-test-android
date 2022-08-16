@@ -12,6 +12,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val launchIntent = intent
+        if (launchIntent.action == "com.google.intent.action.TEST_LOOP") {
+            val scenario = launchIntent.getIntExtra("scenario", 0)
+            // Code to handle your game loop here
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -19,5 +25,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonMain.setOnClickListener {
             startActivity(Intent(this, SecondActivity::class.java))
         }
+
+        MainActivity().finish();
     }
 }
